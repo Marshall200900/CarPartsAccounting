@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ababb281f6fe4de0b226eaa2b876d685" Name="Diagram1">
+        <EntityTypeShape EntityType="AutopartsShopModel.accounting" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutopartsShopModel.parts" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutopartsShopModel.sales" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutopartsShopModel.sold_parts" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutopartsShopModel.workers" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="AutopartsShopModel.FK_accounting_sales" ManuallyRouted="false" />
+        <AssociationConnector Association="AutopartsShopModel.FK_accounting_workers" ManuallyRouted="false" />
+        <AssociationConnector Association="AutopartsShopModel.FK_sold_parts_accounting" ManuallyRouted="false" />
+        <AssociationConnector Association="AutopartsShopModel.FK_sold_parts_parts" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
