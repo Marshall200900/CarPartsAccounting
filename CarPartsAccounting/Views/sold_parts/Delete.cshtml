@@ -1,0 +1,48 @@
+﻿@model CarPartsAccounting.Models.sold_parts
+
+@{
+    ViewBag.Title = "Удаление";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы действительно хотите удалить запись?</h3>
+<div>
+    <h4>Проданные детали</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.accounting.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accounting.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.parts.part_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.parts.part_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Index", "accountings")) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернутсья к списку", "Index")
+        </div>
+    }
+</div>

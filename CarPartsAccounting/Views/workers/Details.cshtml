@@ -1,0 +1,42 @@
+﻿@model CarPartsAccounting.Models.workers
+
+@{
+    ViewBag.Title = "Детали";
+}
+
+<h2>Детали</h2>
+
+<div>
+    <h4>Работники</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Имя работника
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.worker_name)
+        </dd>
+
+        <dt>
+            Должность
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.position)
+        </dd>
+
+        <dt>
+            Номер телефона
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone_number)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактирование", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Вернуться к списку", "Index")
+</p>

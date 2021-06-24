@@ -30,5 +30,6 @@ namespace CarPartsAccounting.Models
         public virtual DbSet<sales> sales { get; set; }
         public virtual DbSet<sold_parts> sold_parts { get; set; }
         public virtual DbSet<workers> workers { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

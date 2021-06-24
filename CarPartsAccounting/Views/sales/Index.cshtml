@@ -1,0 +1,36 @@
+﻿@model IEnumerable<CarPartsAccounting.Models.sales>
+
+@{
+    ViewBag.Title = "Скидки";
+}
+
+<h2>Скидки</h2>
+
+<a type="button" style="margin: 0px 0px 20px;" href="@Url.Action("Create", "sales")" class="btn btn-info">Добавить</a>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Скидка
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.sale_percent)%
+            </td>
+            <td>
+                <a type="button" href="@Url.Action("Edit", new { id = item.id })" class="btn btn-info">
+                    <span>Редактировать</span>
+                </a>
+                <a type="button" href="@Url.Action("Delete", new { id = item.id })" class="btn btn-danger">
+                    <span>Удалить</span>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

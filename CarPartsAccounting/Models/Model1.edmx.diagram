@@ -14,6 +14,7 @@
         <AssociationConnector Association="AutopartsShopModel.FK_accounting_workers" ManuallyRouted="false" />
         <AssociationConnector Association="AutopartsShopModel.FK_sold_parts_accounting" ManuallyRouted="false" />
         <AssociationConnector Association="AutopartsShopModel.FK_sold_parts_parts" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AutopartsShopModel.sysdiagrams" Width="1.5" PointX="5.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,14 +12,12 @@ namespace CarPartsAccounting.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class sold_parts
+    public partial class sysdiagrams
     {
-        public Nullable<int> selling_id { get; set; }
-        public Nullable<int> part_id { get; set; }
-        public int id { get; set; }
-        public int quantity { get; set; }
-    
-        public virtual accounting accounting { get; set; }
-        public virtual parts parts { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
