@@ -17,7 +17,7 @@ namespace CarPartsAccounting.Controllers
         // GET: accountings
         public ActionResult Index()
         {
-            var accounting = db.accounting.Include(a => a.sales).Include(a => a.workers);
+            var accounting = db.accounting.Include(a => a.clients).Include(a => a.clients.sales);
             return View(accounting.ToList());
         }
 
@@ -40,7 +40,7 @@ namespace CarPartsAccounting.Controllers
         public ActionResult Create()
         {
             ViewBag.sale_percent_id = new SelectList(db.sales, "id", "sale_percent");
-            ViewBag.worker_id = new SelectList(db.workers, "id", "worker_name");
+            ViewBag.client_id = new SelectList(db.clients, "id", "client_name");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace CarPartsAccounting.Controllers
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,sale_percent_id,date,worker_id")] accounting accounting)
+        public ActionResult Create([Bind(Include = "id,date,client_id")] accounting accounting)
         {
             if (ModelState.IsValid)
             {
@@ -58,8 +58,7 @@ namespace CarPartsAccounting.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.sale_percent_id = new SelectList(db.sales, "id", "id", accounting.sale_percent_id);
-            ViewBag.worker_id = new SelectList(db.workers, "id", "worker_name", accounting.worker_id);
+            ViewBag.client_id = new SelectList(db.clients, "id", "client_name", accounting.client_id);
             return View(accounting);
         }
 
@@ -75,8 +74,7 @@ namespace CarPartsAccounting.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.sale_percent_id = new SelectList(db.sales, "id", "id", accounting.sale_percent_id);
-            ViewBag.worker_id = new SelectList(db.workers, "id", "worker_name", accounting.worker_id);
+            ViewBag.client_id = new SelectList(db.clients, "id", "client_name", accounting.client_id);
             return View(accounting);
         }
 
@@ -85,7 +83,7 @@ namespace CarPartsAccounting.Controllers
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,sale_percent_id,date,worker_id")] accounting accounting)
+        public ActionResult Edit([Bind(Include = "id,date,client_id")] accounting accounting)
         {
             if (ModelState.IsValid)
             {
@@ -93,8 +91,6 @@ namespace CarPartsAccounting.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.sale_percent_id = new SelectList(db.sales, "id", "id", accounting.sale_percent_id);
-            ViewBag.worker_id = new SelectList(db.workers, "id", "worker_name", accounting.worker_id);
             return View(accounting);
         }
 

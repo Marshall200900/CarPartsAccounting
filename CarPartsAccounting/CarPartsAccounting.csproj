@@ -152,11 +152,14 @@
     <Compile Include="Controllers\partsController.cs" />
     <Compile Include="Controllers\salesController.cs" />
     <Compile Include="Controllers\sold_partsController.cs" />
-    <Compile Include="Controllers\workersController.cs" />
+    <Compile Include="Controllers\clientsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\accounting.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\clients.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
@@ -183,12 +186,6 @@
     <Compile Include="Models\sold_parts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\workers.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -202,8 +199,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -244,11 +241,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\workers\Create.cshtml" />
-    <Content Include="Views\workers\Delete.cshtml" />
-    <Content Include="Views\workers\Details.cshtml" />
-    <Content Include="Views\workers\Edit.cshtml" />
-    <Content Include="Views\workers\Index.cshtml" />
+    <Content Include="Views\clients\Create.cshtml" />
+    <Content Include="Views\clients\Delete.cshtml" />
+    <Content Include="Views\clients\Details.cshtml" />
+    <Content Include="Views\clients\Edit.cshtml" />
+    <Content Include="Views\clients\Index.cshtml" />
     <Content Include="Views\sales\Create.cshtml" />
     <Content Include="Views\sales\Delete.cshtml" />
     <Content Include="Views\sales\Details.cshtml" />

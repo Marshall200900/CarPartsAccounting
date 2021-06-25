@@ -12,12 +12,21 @@ namespace CarPartsAccounting.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class clients
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public clients()
+        {
+            this.accounting = new HashSet<accounting>();
+        }
+    
+        public int id { get; set; }
+        public string client_name { get; set; }
+        public string phone_number { get; set; }
+        public Nullable<int> sale_id { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<accounting> accounting { get; set; }
+        public virtual sales sales { get; set; }
     }
 }

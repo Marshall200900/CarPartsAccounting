@@ -17,13 +17,13 @@ namespace CarPartsAccounting.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public sales()
         {
-            this.accounting = new HashSet<accounting>();
+            this.clients = new HashSet<clients>();
         }
     
         public int id { get; set; }
         public Nullable<int> sale_percent { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<accounting> accounting { get; set; }
+        public virtual ICollection<clients> clients { get; set; }
     }
 }

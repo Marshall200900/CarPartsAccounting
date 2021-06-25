@@ -11,7 +11,10 @@
 <table class="table table-striped">
     <tr>
         <th>
-            Работник
+            Идентификатор продажи
+        </th>
+        <th>
+            Клиент
         </th>
         <th>
             Дата
@@ -26,13 +29,16 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.workers.worker_name)
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clients.client_name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.sales.sale_percent)%
+                @Html.DisplayFor(modelItem => item.clients.sales.sale_percent)%
             </td>
             <td>
                 <a type="button" href="@Url.Action("Index", "sold_parts", new { id = item.id })" class="btn btn-info">

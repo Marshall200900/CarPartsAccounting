@@ -42,24 +42,24 @@ namespace GymAccoutingWeb.Controllers
             DataTable dt = new DataTable();
             string path;
             dt.Columns.Add("Идентификатор записи");
-            dt.Columns.Add("Скидка");
+            dt.Columns.Add("Клиент");
             dt.Columns.Add("Дата");
-            dt.Columns.Add("Работник");
+            dt.Columns.Add("Скидка");
             dt.Columns.Add("Детали");
 
 
             var accounting = db.accounting;
 
             //Adding the Rows.
-            foreach (var row in accounting.Include(s => s.sales).Include(w => w.workers).ToList())
+            foreach (var row in accounting.Include(s => s.clients).ToList())
             {
 
                 dt.Rows.Add();
 
                 dt.Rows[dt.Rows.Count - 1][0] = row.id;
-                dt.Rows[dt.Rows.Count - 1][1] = row.sales.sale_percent;
+                dt.Rows[dt.Rows.Count - 1][1] = row.clients.client_name;
                 dt.Rows[dt.Rows.Count - 1][2] = row.date;
-                dt.Rows[dt.Rows.Count - 1][3] = row.workers.worker_name;
+                dt.Rows[dt.Rows.Count - 1][3] = row.clients.sales.sale_percent;
                 string details = "";
                 foreach(var detail in db.sold_parts.Where(s => s.selling_id == row.id))
                 {

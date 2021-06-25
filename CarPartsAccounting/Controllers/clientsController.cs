@@ -10,107 +10,112 @@ using CarPartsAccounting.Models;
 
 namespace CarPartsAccounting.Controllers
 {
-    public class workersController : Controller
+    public class clientsController : Controller
     {
         private AutopartsShopEntities db = new AutopartsShopEntities();
 
-        // GET: workers
+        // GET: clients
         public ActionResult Index()
         {
-            return View(db.workers.ToList());
+            return View(db.clients.ToList());
         }
 
-        // GET: workers/Details/5
+        // GET: clients/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            workers workers = db.workers.Find(id);
-            if (workers == null)
+            clients clients = db.clients.Find(id);
+            if (clients == null)
             {
                 return HttpNotFound();
             }
-            return View(workers);
+            return View(clients);
         }
 
-        // GET: workers/Create
+        // GET: clients/Create
         public ActionResult Create()
         {
+
+            ViewBag.sale_id = new SelectList(db.sales, "id", "sale_percent");
             return View();
         }
 
-        // POST: workers/Create
+        // POST: clients/Create
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,worker_name,position,phone_number")] workers workers)
+        public ActionResult Create([Bind(Include = "id,client_name,sale_id,phone_number")] clients clients)
         {
             if (ModelState.IsValid)
             {
-                db.workers.Add(workers);
+                db.clients.Add(clients);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(workers);
+            return View(clients);
         }
 
-        // GET: workers/Edit/5
+        // GET: clients/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            workers workers = db.workers.Find(id);
-            if (workers == null)
+            clients clients = db.clients.Find(id);
+            if (clients == null)
             {
                 return HttpNotFound();
             }
-            return View(workers);
+            ViewBag.sale_id = new SelectList(db.sales, "id", "sale_percent", clients.sale_id);
+
+            return View(clients);
         }
 
-        // POST: workers/Edit/5
+        // POST: clients/Edit/5
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,worker_name,position,phone_number")] workers workers)
+        public ActionResult Edit([Bind(Include = "id,client_name,sale_id,phone_number")] clients clients)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(workers).State = EntityState.Modified;
+                db.Entry(clients).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(workers);
+
+            return View(clients);
         }
 
-        // GET: workers/Delete/5
+        // GET: clients/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            workers workers = db.workers.Find(id);
-            if (workers == null)
+            clients clients = db.clients.Find(id);
+            if (clients == null)
             {
                 return HttpNotFound();
             }
-            return View(workers);
+            return View(clients);
         }
 
-        // POST: workers/Delete/5
+        // POST: clients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            workers workers = db.workers.Find(id);
-            db.workers.Remove(workers);
+            clients clients = db.clients.Find(id);
+            db.clients.Remove(clients);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

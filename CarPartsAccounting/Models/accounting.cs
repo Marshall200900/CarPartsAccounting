@@ -21,12 +21,10 @@ namespace CarPartsAccounting.Models
         }
     
         public int id { get; set; }
-        public Nullable<int> sale_percent_id { get; set; }
         public System.DateTime date { get; set; }
-        public Nullable<int> worker_id { get; set; }
+        public Nullable<int> client_id { get; set; }
     
-        public virtual sales sales { get; set; }
-        public virtual workers workers { get; set; }
+        public virtual clients clients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sold_parts> sold_parts { get; set; }
     }

@@ -17,27 +17,21 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.id)
 
-        <div class="form-group">
-            Идентификатор
-            <div class="col-md-10">
-                @Html.DropDownList("sale_percent_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.sale_percent_id, "", new { @class = "text-danger" })
-            </div>
+        
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="date">Дата</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
         </div>
+    </div>
 
         <div class="form-group">
-            Дата
+            <label class="control-label col-md-2" for="client_id">Имя клиента</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.worker_id, "worker_id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("worker_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.worker_id, "", new { @class = "text-danger" })
+                @Html.DropDownList("client_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.client_id, "", new { @class = "text-danger" })
             </div>
         </div>
 
